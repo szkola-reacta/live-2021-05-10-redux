@@ -39,7 +39,7 @@ const reducer = (state = INITIAL_STATE, action) => {
         ...state,
         isLoading: false,
         isError: false,
-        posts: action.payload
+        users: action.payload
       };
     case FETCH_USERS_FAILED:
       return {

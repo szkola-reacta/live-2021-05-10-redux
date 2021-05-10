@@ -3,12 +3,6 @@ import { Button, Text } from '@chakra-ui/react';
 
 import { fetchUsers } from '../state';
 
-const mapStateToProps = state => ({
-  users: state.users.posts,
-  isLoading: state.users.isLoading,
-  isError: state.users.isError
-});
-
 function UsersContainer(props) {
   const { users, isLoading, isError, fetchUsers } = props;
   const fetchData = () => fetchUsers();
@@ -27,6 +21,12 @@ function UsersContainer(props) {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  users: state.users.users,
+  isLoading: state.users.isLoading,
+  isError: state.users.isError
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchUsers: () => dispatch(fetchUsers())
