@@ -2,10 +2,16 @@ import { connect } from 'react-redux';
 import { Button, Text } from '@chakra-ui/react';
 
 import { fetchUsers } from '../state';
+import { useEffect } from 'react';
 
 function UsersContainer(props) {
   const { users, isLoading, isError, fetchUsers } = props;
   const fetchData = () => fetchUsers();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="container">
       <Text as="h2" fontSize={18}>Users</Text>
